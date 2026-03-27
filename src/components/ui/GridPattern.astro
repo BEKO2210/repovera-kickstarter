@@ -1,0 +1,23 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className = "" } = Astro.props;
+---
+
+<div
+  class:list={["pointer-events-none absolute inset-0 overflow-hidden", className]}
+  aria-hidden="true"
+>
+  <div
+    class="absolute inset-0 opacity-30"
+    style="background-image: url('/repovera-kickstarter/images/grid.svg'); background-size: 60px 60px;"
+  >
+  </div>
+  <div
+    class="absolute inset-0"
+    style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(99,102,241,0.08), transparent);"
+  >
+  </div>
+</div>

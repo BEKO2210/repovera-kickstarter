@@ -1,0 +1,93 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+
+const principles = [
+  {
+    title: "Minimal data by design",
+    description: "We collect only what is necessary. No behavioral profiling, no invisible tracking, no data harvesting disguised as product improvement.",
+  },
+  {
+    title: "Clarity over legalese",
+    description: "Our privacy policies, terms, and product decisions are written to be understood — not to obscure. If a user cannot understand how their data is handled, the system has failed.",
+  },
+  {
+    title: "Transparency as interface",
+    description: "Audit logs, access records, and organizational visibility are planned as first-class product features — not buried admin panels.",
+  },
+  {
+    title: "Accountability by jurisdiction",
+    description: "Built under German law, one of the strongest data protection frameworks in the world. Legal grounding is not a footnote — it is a feature.",
+  },
+];
+
+const checklist = [
+  "No behavioral tracking by default",
+  "Transparent data handling policies",
+  "Planned audit trail for organizations",
+  "User-visible access and activity logs",
+  "Explicit consent over implied collection",
+  "Jurisdictional clarity under German law",
+];
+---
+
+<section id="privacy" class="py-20 md:py-28">
+  <Container>
+    <Reveal>
+      <SectionHeading
+        eyebrow="Privacy & transparency"
+        title="Trust is a product feature"
+        description="Privacy at Repovera is not a compliance checkbox. It is a design principle that shapes every decision — from architecture to interface."
+      />
+    </Reveal>
+
+    <div class="grid lg:grid-cols-5 gap-12 items-start">
+      <div class="lg:col-span-3 grid sm:grid-cols-2 gap-5">
+        {
+          principles.map((principle, i) => (
+            <Reveal delay={i * 80}>
+              <div class="p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] h-full">
+                <h4 class="text-base font-semibold text-[var(--color-text)] mb-2.5">
+                  {principle.title}
+                </h4>
+                <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                  {principle.description}
+                </p>
+              </div>
+            </Reveal>
+          ))
+        }
+      </div>
+
+      <Reveal delay={200} class="lg:col-span-2">
+        <div class="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-accent)]/20">
+          <h4 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-5">
+            Transparency direction
+          </h4>
+          <ul class="space-y-3.5">
+            {
+              checklist.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+                  <svg
+                    class="h-4 w-4 mt-0.5 shrink-0 text-[var(--color-teal)]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </Reveal>
+    </div>
+  </Container>
+</section>

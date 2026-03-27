@@ -1,0 +1,52 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/site/Header.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Footer from "@/components/site/Footer.astro";
+import { getCollection, render } from "astro:content";
+import { KICKSTARTER_URL, GITHUB_URL, BASE_PATH } from "@/consts/site";
+
+const manifestoEntries = await getCollection("manifesto");
+const entry = manifestoEntries[0];
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  title="Manifesto — Repovera"
+  description="The Repovera manifesto: why we are building a code platform grounded in trust, transparency, and long-term thinking."
+>
+  <Header />
+  <main id="main" class="pt-28 pb-20">
+    <Container>
+      <div class="max-w-2xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-4">
+          Manifesto
+        </p>
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-[var(--color-text)] mb-6">
+          {entry.data.title}
+        </h1>
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-12">
+          {entry.data.description}
+        </p>
+
+        <article class="prose">
+          <Content />
+        </article>
+
+        <div class="mt-16 pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row gap-3">
+          <Button variant="kickstarter" href={KICKSTARTER_URL} target="_blank">
+            Back on Kickstarter
+          </Button>
+          <Button variant="github" href={GITHUB_URL} target="_blank">
+            View on GitHub
+          </Button>
+          <Button variant="secondary" href={`${BASE_PATH}/`}>
+            Back to home
+          </Button>
+        </div>
+      </div>
+    </Container>
+  </main>
+  <Footer />
+</BaseLayout>

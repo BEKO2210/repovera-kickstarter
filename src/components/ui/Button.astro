@@ -1,0 +1,57 @@
+---
+interface Props {
+  variant?: "primary" | "secondary" | "ghost" | "outline" | "kickstarter" | "github";
+  size?: "sm" | "md" | "lg";
+  href?: string;
+  target?: string;
+  rel?: string;
+  class?: string;
+  type?: string;
+}
+
+const {
+  variant = "primary",
+  size = "md",
+  href,
+  target,
+  rel,
+  class: className = "",
+  type,
+} = Astro.props;
+
+const Tag = href ? "a" : "button";
+
+const baseClasses =
+  "inline-flex items-center justify-center gap-2 font-medium rounded-lg transition-all duration-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--color-accent)] cursor-pointer whitespace-nowrap";
+
+const sizeClasses = {
+  sm: "px-3.5 py-2 text-sm",
+  md: "px-5 py-2.5 text-sm",
+  lg: "px-6 py-3 text-base",
+};
+
+const variantClasses = {
+  primary:
+    "bg-[var(--color-accent)] text-white hover:bg-[var(--color-accent-hover)] shadow-lg shadow-[var(--color-accent)]/20",
+  secondary:
+    "bg-[var(--color-surface-elevated)] text-[var(--color-text)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] hover:bg-[var(--color-surface-bright)]",
+  ghost:
+    "text-[var(--color-text-secondary)] hover:text-[var(--color-text)] hover:bg-[var(--color-surface)]",
+  outline:
+    "border border-[var(--color-border)] text-[var(--color-text)] hover:border-[var(--color-accent)] hover:text-[var(--color-accent)]",
+  kickstarter:
+    "bg-[var(--color-kickstarter)] text-[#0a0a0f] font-semibold hover:bg-[var(--color-kickstarter-hover)] shadow-lg shadow-[var(--color-kickstarter)]/20",
+  github:
+    "bg-[#24292e] text-white hover:bg-[#2f363d] border border-[rgba(255,255,255,0.1)]",
+};
+---
+
+<Tag
+  href={href}
+  target={target}
+  rel={target === "_blank" ? "noopener noreferrer" : rel}
+  type={!href ? type : undefined}
+  class:list={[baseClasses, sizeClasses[size], variantClasses[variant], className]}
+>
+  <slot />
+</Tag>

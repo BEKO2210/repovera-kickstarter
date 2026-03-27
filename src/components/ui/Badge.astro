@@ -1,0 +1,29 @@
+---
+interface Props {
+  variant?: "default" | "accent" | "teal" | "muted";
+  class?: string;
+}
+
+const { variant = "default", class: className = "" } = Astro.props;
+
+const variantClasses = {
+  default:
+    "bg-[var(--color-surface-elevated)] text-[var(--color-text-secondary)] border border-[var(--color-border)]",
+  accent:
+    "bg-[var(--color-accent-muted)] text-[var(--color-accent-hover)] border border-[var(--color-accent)]/20",
+  teal:
+    "bg-[var(--color-teal-muted)] text-[var(--color-teal)] border border-[var(--color-teal)]/20",
+  muted:
+    "bg-[var(--color-surface)] text-[var(--color-text-tertiary)] border border-[var(--color-border)]",
+};
+---
+
+<span
+  class:list={[
+    "inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-medium",
+    variantClasses[variant],
+    className,
+  ]}
+>
+  <slot />
+</span>

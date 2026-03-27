@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/site/Header.astro";
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Footer from "@/components/site/Footer.astro";
+import { BASE_PATH } from "@/consts/site";
+---
+
+<BaseLayout title="Page not found — Repovera" description="This page does not exist.">
+  <Header />
+  <main id="main" class="pt-28 pb-20">
+    <Container>
+      <div class="max-w-lg mx-auto text-center py-20">
+        <p class="text-7xl font-bold text-[var(--color-surface-bright)] mb-6">404</p>
+        <h1 class="text-2xl sm:text-3xl font-bold tracking-tight text-[var(--color-text)] mb-4">
+          You've reached an unmapped route
+        </h1>
+        <p class="text-base text-[var(--color-text-secondary)] leading-relaxed mb-8">
+          This page does not exist yet. Repovera is in its early stages — some paths are still
+          being built. Head back to explore what is here.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <Button variant="primary" href={`${BASE_PATH}/`}>
+            Back to home
+          </Button>
+          <Button variant="secondary" href={`${BASE_PATH}/roadmap`}>
+            View roadmap
+          </Button>
+        </div>
+      </div>
+    </Container>
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,85 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Button from "@/components/ui/Button.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+import { WAITLIST_EMAIL } from "@/consts/site";
+
+const capabilities = [
+  "Organizational governance workflows",
+  "Role-based access and permission structures",
+  "Audit trail visibility for compliance",
+  "Transparent security posture documentation",
+  "Future SSO and identity integration direction",
+  "Deployment flexibility for regulated environments",
+  "Dedicated support path for institutional users",
+  "Compliance-aware product development",
+];
+---
+
+<section id="enterprise" class="py-20 md:py-28 bg-[var(--color-surface)]/50">
+  <Container>
+    <Reveal>
+      <SectionHeading
+        eyebrow="Enterprise direction"
+        title="Infrastructure serious teams can trust"
+        description="Repovera is being designed to meet the governance, compliance, and accountability needs of enterprises, regulated industries, and public institutions."
+      />
+    </Reveal>
+
+    <div class="grid lg:grid-cols-2 gap-12 items-start">
+      <Reveal>
+        <div class="space-y-5 text-[var(--color-text-secondary)] leading-relaxed">
+          <p>
+            Enterprise readiness at Repovera is not a premium upsell. It is part of the product
+            vision. We believe that governance, audit visibility, and compliance controls should be
+            structural features — accessible to every organization that needs them.
+          </p>
+          <p>
+            From role management to organizational policies, from access audit trails to transparent
+            security practices, Repovera is designed for teams that operate under real accountability
+            requirements. Whether you are a regulated enterprise, a public institution, or a startup
+            preparing for its first audit — the platform is being built with your reality in mind.
+          </p>
+          <div class="pt-4 flex flex-col sm:flex-row gap-3">
+            <Button variant="primary" href={`mailto:${WAITLIST_EMAIL}?subject=Enterprise%20Interest`}>
+              Request enterprise updates
+            </Button>
+            <Button variant="outline" href="#waitlist">
+              Join the waitlist
+            </Button>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={100}>
+        <div class="p-6 rounded-xl bg-[var(--color-bg)] border border-[var(--color-border)]">
+          <h4 class="text-sm font-semibold uppercase tracking-wider text-[var(--color-accent)] mb-5">
+            Enterprise capabilities direction
+          </h4>
+          <ul class="space-y-3">
+            {
+              capabilities.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-[var(--color-text-secondary)]">
+                  <svg
+                    class="h-4 w-4 mt-0.5 shrink-0 text-[var(--color-accent)]"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M20 6L9 17l-5-5" />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </Reveal>
+    </div>
+  </Container>
+</section>

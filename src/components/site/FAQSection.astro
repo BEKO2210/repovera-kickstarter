@@ -1,0 +1,47 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+import { faqItems } from "@/data/faq";
+---
+
+<section id="faq" class="py-20 md:py-28">
+  <Container>
+    <Reveal>
+      <SectionHeading
+        eyebrow="Questions"
+        title="Frequently asked questions"
+        description="Honest answers about where Repovera stands today and where it is going."
+      />
+    </Reveal>
+
+    <div class="max-w-3xl mx-auto space-y-3">
+      {
+        faqItems.map((item, i) => (
+          <Reveal delay={Math.min(i * 40, 200)}>
+            <details class="group rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
+              <summary class="flex items-center justify-between cursor-pointer px-6 py-4 text-[var(--color-text)] font-medium text-sm sm:text-base list-none [&::-webkit-details-marker]:hidden">
+                <span>{item.question}</span>
+                <svg
+                  class="h-5 w-5 shrink-0 ml-4 text-[var(--color-text-tertiary)] transition-transform duration-200 group-open:rotate-45"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 5v14M5 12h14" />
+                </svg>
+              </summary>
+              <div class="px-6 pb-5 text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                {item.answer}
+              </div>
+            </details>
+          </Reveal>
+        ))
+      }
+    </div>
+  </Container>
+</section>

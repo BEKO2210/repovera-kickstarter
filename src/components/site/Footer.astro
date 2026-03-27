@@ -1,0 +1,109 @@
+---
+import Container from "@/components/ui/Container.astro";
+import LogoMark from "@/components/ui/LogoMark.astro";
+import { FOOTER_LINKS } from "@/consts/navigation";
+import { KICKSTARTER_URL, GITHUB_URL, SITE_NAME, CONTACT_EMAIL, BASE_PATH } from "@/consts/site";
+---
+
+<footer class="border-t border-[var(--color-border)] pt-16 pb-8">
+  <Container>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+      <!-- Brand column -->
+      <div class="col-span-2 md:col-span-1">
+        <LogoMark class="mb-4" />
+        <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed max-w-xs">
+          A trusted global home for code, collaboration, and digital sovereignty.
+          Built from Germany for the world.
+        </p>
+      </div>
+
+      <!-- Product links -->
+      <div>
+        <h4 class="text-sm font-semibold text-[var(--color-text)] mb-4">Product</h4>
+        <ul class="space-y-2.5">
+          {
+            FOOTER_LINKS.product.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Legal links -->
+      <div>
+        <h4 class="text-sm font-semibold text-[var(--color-text)] mb-4">Legal</h4>
+        <ul class="space-y-2.5">
+          {
+            FOOTER_LINKS.legal.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <!-- Connect links -->
+      <div>
+        <h4 class="text-sm font-semibold text-[var(--color-text)] mb-4">Connect</h4>
+        <ul class="space-y-2.5">
+          {
+            FOOTER_LINKS.connect.map((link) => (
+              <li>
+                <a
+                  href={link.href}
+                  target={link.external ? "_blank" : undefined}
+                  rel={link.external ? "noopener noreferrer" : undefined}
+                  class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))
+          }
+          <li>
+            <a
+              href={`mailto:${CONTACT_EMAIL}`}
+              class="text-sm text-[var(--color-text-secondary)] hover:text-[var(--color-text)] transition-colors"
+            >
+              Contact
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="pt-8 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-xs text-[var(--color-text-tertiary)]">
+        &copy; {new Date().getFullYear()} {SITE_NAME}. All rights reserved. Built from Germany.
+      </p>
+      <div class="flex items-center gap-4">
+        <a
+          href={`${BASE_PATH}/privacy`}
+          class="text-xs text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] transition-colors"
+        >
+          Privacy
+        </a>
+        <a
+          href={`${BASE_PATH}/imprint`}
+          class="text-xs text-[var(--color-text-tertiary)] hover:text-[var(--color-text-secondary)] transition-colors"
+        >
+          Imprint
+        </a>
+      </div>
+    </div>
+  </Container>
+</footer>
