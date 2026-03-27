@@ -1,0 +1,121 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/site/Header.astro";
+import Container from "@/components/ui/Container.astro";
+import Footer from "@/components/site/Footer.astro";
+import { CONTACT_EMAIL, SITE_NAME } from "@/consts/site";
+---
+
+<BaseLayout
+  title="Privacy — Repovera"
+  description="How Repovera approaches privacy, data handling, and user trust. Our commitment to minimal data collection and transparent practices."
+>
+  <Header />
+  <main id="main" class="pt-28 pb-20">
+    <Container>
+      <div class="max-w-2xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-4">
+          Privacy
+        </p>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text)] mb-6">
+          Privacy at {SITE_NAME}
+        </h1>
+        <p class="text-lg text-[var(--color-text-secondary)] leading-relaxed mb-12">
+          We believe privacy is a right, not a feature. This page outlines our approach to data
+          handling for this pre-launch site and our direction for the platform.
+        </p>
+
+        <div class="prose">
+          <h2>Introduction</h2>
+          <p>
+            {SITE_NAME} is committed to handling personal data with transparency, care, and minimal
+            collection. This privacy statement applies to the {SITE_NAME} pre-launch website. As
+            the platform develops, this policy will be updated to reflect the full scope of our
+            data practices.
+          </p>
+
+          <h2>What this site collects</h2>
+          <p>
+            This pre-launch site is a static website. In its current form, it does not use
+            cookies, tracking scripts, or analytics services that collect personal data. If you
+            choose to join our waitlist by sending an email, we receive only the information you
+            explicitly provide.
+          </p>
+
+          <h2>What we do not collect</h2>
+          <p>
+            We do not engage in behavioral profiling, cross-site tracking, or third-party data
+            sharing. We do not sell or monetize user data. We do not embed hidden tracking pixels
+            or fingerprinting scripts.
+          </p>
+
+          <h2>Analytics philosophy</h2>
+          <p>
+            If we introduce analytics in the future, they will be privacy-respecting, minimal,
+            and transparently disclosed. We will prioritize solutions that do not track individual
+            users and that respect Do Not Track signals and similar privacy preferences.
+          </p>
+
+          <h2>Cookies</h2>
+          <p>
+            This static site does not set cookies. If future versions of the site or platform
+            require cookies for functionality (such as authentication), we will disclose their
+            purpose clearly and request explicit consent where required by law.
+          </p>
+
+          <h2>Future platform accounts</h2>
+          <p>
+            When the {SITE_NAME} platform launches, account creation will involve collecting
+            information necessary for the service (such as email address and username). We will
+            design account data handling with minimal collection, clear purpose, and transparent
+            policies. Users will have control over their data and visibility settings.
+          </p>
+
+          <h2>Legal basis</h2>
+          <p>
+            {SITE_NAME} operates under German law. Where applicable, our data processing is based
+            on legitimate interest (operating the website), consent (waitlist signup), or
+            contractual necessity (future platform accounts). We adhere to the principles of the
+            General Data Protection Regulation (GDPR) and German data protection law (BDSG).
+          </p>
+
+          <h2>International usage</h2>
+          <p>
+            While {SITE_NAME} is legally based in Germany, the website is accessible globally.
+            We apply the same privacy standards to all users regardless of location. European
+            data protection standards serve as our baseline, not our ceiling.
+          </p>
+
+          <h2>Data requests</h2>
+          <p>
+            You have the right to request access to, correction of, or deletion of any personal
+            data we hold about you. To make a request, please contact us at{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
+              {CONTACT_EMAIL}
+            </a>. We will respond within the timeframes required by applicable law.
+          </p>
+
+          <h2>Updates to this policy</h2>
+          <p>
+            As {SITE_NAME} develops, this privacy policy will be updated to reflect new features,
+            data practices, and legal requirements. Material changes will be communicated clearly.
+            The current version applies to the pre-launch website only.
+          </p>
+
+          <hr />
+
+          <p>
+            <strong>Contact:</strong>{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
+              {CONTACT_EMAIL}
+            </a>
+          </p>
+          <p class="text-[var(--color-text-tertiary)]">
+            Last updated: Pre-launch phase. This is a living document.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </main>
+  <Footer />
+</BaseLayout>

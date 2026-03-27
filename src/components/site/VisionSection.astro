@@ -1,0 +1,94 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+import { BASE_PATH } from "@/consts/site";
+
+const principles = [
+  {
+    title: "Trust by architecture",
+    description:
+      "Privacy and transparency are not features we bolt on after launch. They are structural decisions embedded in how the platform is designed, deployed, and governed.",
+  },
+  {
+    title: "Clarity over complexity",
+    description:
+      "Every interface, policy, and permission should be understandable without a legal team. Clarity is a product value, not a documentation afterthought.",
+  },
+  {
+    title: "Respect as a default",
+    description:
+      "Users are collaborators, not data points. Repovera is designed around the principle that a platform should earn trust — not extract it.",
+  },
+];
+---
+
+<section id="vision" class="py-20 md:py-28">
+  <Container>
+    <Reveal>
+      <SectionHeading
+        eyebrow="Vision"
+        title="A different foundation for code infrastructure"
+        description="The platforms developers depend on should reflect the values developers care about. Repovera starts from a simple premise: the way infrastructure is built shapes the trust it deserves."
+      />
+    </Reveal>
+
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 items-start mb-16">
+      <Reveal>
+        <div class="space-y-6">
+          <h3 class="text-xl font-semibold text-[var(--color-text)]">Why now</h3>
+          <p class="text-[var(--color-text-secondary)] leading-relaxed">
+            Developer platforms have become critical infrastructure — yet most were built in an era where
+            growth metrics mattered more than governance, and data collection was a default, not a
+            deliberate choice. As teams grow more distributed, as regulations evolve, and as trust in
+            technology platforms faces legitimate scrutiny, the need for a different kind of foundation
+            becomes clear.
+          </p>
+          <p class="text-[var(--color-text-secondary)] leading-relaxed">
+            Repovera is not a reaction. It is a considered response. A platform built from first principles
+            — where privacy is architecture, transparency is interface, and legal clarity is a feature.
+            From Germany, for the world.
+          </p>
+        </div>
+      </Reveal>
+
+      <Reveal delay={100}>
+        <div class="space-y-6">
+          <h3 class="text-xl font-semibold text-[var(--color-text)]">What we are building</h3>
+          <p class="text-[var(--color-text-secondary)] leading-relaxed">
+            A global code hosting and collaboration platform with repositories, teams, review workflows,
+            automation, governance controls, and audit visibility — designed to serve independent developers,
+            open-source maintainers, startups, enterprises, and public institutions.
+          </p>
+          <p class="text-[var(--color-text-secondary)] leading-relaxed">
+            Every layer of the platform — from data handling to organizational controls — is being
+            designed with the understanding that code infrastructure is long-term infrastructure. It
+            should be built with the same care and accountability that developers bring to their own work.
+          </p>
+          <a
+            href={`${BASE_PATH}/manifesto`}
+            class="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--color-accent)] hover:text-[var(--color-accent-hover)] transition-colors"
+          >
+            Read the full manifesto
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </Reveal>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-6">
+      {
+        principles.map((principle, i) => (
+          <Reveal delay={i * 80}>
+            <div class="p-6 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
+              <h4 class="text-base font-semibold text-[var(--color-text)] mb-3">{principle.title}</h4>
+              <p class="text-sm text-[var(--color-text-secondary)] leading-relaxed">
+                {principle.description}
+              </p>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </Container>
+</section>

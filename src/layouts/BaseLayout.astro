@@ -1,0 +1,66 @@
+---
+import { SITE_NAME, SITE_URL, SITE_DESCRIPTION, BASE_PATH } from "@/consts/site";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ogImage?: string;
+  canonical?: string;
+}
+
+const {
+  title = `${SITE_NAME} — Global Code Infrastructure Built on Trust`,
+  description = SITE_DESCRIPTION,
+  ogImage = `${SITE_URL}/og-image.svg`,
+  canonical,
+} = Astro.props;
+
+const canonicalURL = canonical || new URL(Astro.url.pathname, SITE_URL).toString();
+---
+
+<!doctype html>
+<html lang="en" class="antialiased">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" type="image/svg+xml" href={`${BASE_PATH}/favicon.svg`} />
+    <link rel="manifest" href={`${BASE_PATH}/manifest.webmanifest`} />
+    <meta name="theme-color" content="#0a0a0f" />
+
+    <!-- Preload Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:site_name" content={SITE_NAME} />
+
+    <!-- Twitter/X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+  </head>
+  <body class="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)]">
+    <a href="#main" class="skip-link">Skip to content</a>
+    <slot />
+    <script>
+      import "@/scripts/reveal.ts";
+    </script>
+  </body>
+</html>

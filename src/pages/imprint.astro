@@ -1,0 +1,105 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Header from "@/components/site/Header.astro";
+import Container from "@/components/ui/Container.astro";
+import Footer from "@/components/site/Footer.astro";
+import {
+  SITE_NAME,
+  CONTACT_EMAIL,
+  FOUNDER_NAME_PLACEHOLDER,
+  COMPANY_NAME_PLACEHOLDER,
+  COMPANY_ADDRESS_PLACEHOLDER,
+  VAT_ID_PLACEHOLDER,
+} from "@/consts/site";
+---
+
+<BaseLayout
+  title="Imprint — Repovera"
+  description="Legal imprint (Impressum) for Repovera, as required by German law."
+>
+  <Header />
+  <main id="main" class="pt-28 pb-20">
+    <Container>
+      <div class="max-w-2xl mx-auto">
+        <p class="text-xs font-semibold uppercase tracking-widest text-[var(--color-accent)] mb-4">
+          Legal
+        </p>
+        <h1 class="text-3xl sm:text-4xl font-bold tracking-tight text-[var(--color-text)] mb-6">
+          Imprint
+        </h1>
+        <p class="text-base text-[var(--color-text-secondary)] leading-relaxed mb-12">
+          Impressum gemäß § 5 TMG (German Telemedia Act)
+        </p>
+
+        <div class="prose">
+          <h2>Responsible entity</h2>
+          <p>
+            {COMPANY_NAME_PLACEHOLDER}<br />
+            <span class="whitespace-pre-line">{COMPANY_ADDRESS_PLACEHOLDER}</span>
+          </p>
+
+          <h2>Represented by</h2>
+          <p>{FOUNDER_NAME_PLACEHOLDER}</p>
+
+          <h2>Contact</h2>
+          <p>
+            Email:{" "}
+            <a href={`mailto:${CONTACT_EMAIL}`} class="text-[var(--color-accent)] hover:text-[var(--color-accent-hover)]">
+              {CONTACT_EMAIL}
+            </a>
+          </p>
+
+          <h2>VAT identification number</h2>
+          <p>
+            VAT ID according to § 27a of the German Value Added Tax Act:<br />
+            {VAT_ID_PLACEHOLDER}
+          </p>
+
+          <h2>Editorial responsibility</h2>
+          <p>
+            Responsible for content according to § 55 Abs. 2 RStV:<br />
+            {FOUNDER_NAME_PLACEHOLDER}<br />
+            <span class="whitespace-pre-line">{COMPANY_ADDRESS_PLACEHOLDER}</span>
+          </p>
+
+          <h2>Liability for content</h2>
+          <p>
+            The contents of this website have been created with the utmost care. However, we
+            cannot guarantee the accuracy, completeness, or timeliness of the content. As a
+            service provider, we are responsible for our own content on these pages in accordance
+            with general laws pursuant to § 7 Abs. 1 TMG. According to §§ 8 to 10 TMG, however,
+            we are not obligated to monitor transmitted or stored third-party information or to
+            investigate circumstances that indicate illegal activity.
+          </p>
+
+          <h2>Liability for links</h2>
+          <p>
+            Our website contains links to external third-party websites over whose content we have
+            no influence. Therefore, we cannot accept any liability for this external content. The
+            respective provider or operator of the linked pages is always responsible for the
+            content of the linked pages. The linked pages were checked for possible legal
+            violations at the time of linking. Illegal content was not recognizable at the time of
+            linking.
+          </p>
+
+          <h2>Copyright</h2>
+          <p>
+            The content and works created by the site operators on these pages are subject to
+            German copyright law. The reproduction, editing, distribution, and any kind of use
+            beyond the limits of copyright law require the written consent of the respective
+            author or creator. Downloads and copies of this page are only permitted for private,
+            non-commercial use.
+          </p>
+
+          <hr />
+
+          <p class="text-[var(--color-text-tertiary)]">
+            This imprint contains placeholder information. Please update all bracketed fields with
+            actual legal entity details before public deployment.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </main>
+  <Footer />
+</BaseLayout>

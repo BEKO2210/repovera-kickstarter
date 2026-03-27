@@ -1,0 +1,72 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Button from "@/components/ui/Button.astro";
+import Badge from "@/components/ui/Badge.astro";
+import GridPattern from "@/components/ui/GridPattern.astro";
+import { KICKSTARTER_URL, GITHUB_URL, BASE_PATH } from "@/consts/site";
+---
+
+<section class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+  <GridPattern />
+
+  <Container class="relative z-10">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="reveal mb-6">
+        <Badge variant="accent">Pre-launch — Built from Germany for the world</Badge>
+      </div>
+
+      <h1 class="reveal text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-6">
+        The global home for code&nbsp;—
+        <span class="text-transparent bg-clip-text bg-linear-to-r from-[var(--color-accent)] to-[var(--color-teal)]">
+          built on trust
+        </span>
+      </h1>
+
+      <p class="reveal text-lg sm:text-xl text-[var(--color-text-secondary)] leading-relaxed max-w-2xl mx-auto mb-10">
+        Repovera is a next-generation code platform with privacy, transparency, and legal clarity at its core.
+        Global infrastructure, grounded in Germany. Designed for developers and teams who take trust seriously.
+      </p>
+
+      <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-3 mb-12">
+        <Button variant="primary" size="lg" href={`${BASE_PATH}/#waitlist`}>
+          Join the Waitlist
+        </Button>
+        <Button variant="kickstarter" size="lg" href={KICKSTARTER_URL} target="_blank">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.204 8.086l-5.792 3.376V7.696L18.204 4v4.086zM12.412 12.622l5.792 3.376V20l-5.792-3.766v-3.612zM5.796 4.766v14.468L10.572 16V8L5.796 4.766z"/>
+          </svg>
+          Back on Kickstarter
+        </Button>
+        <Button variant="github" size="lg" href={GITHUB_URL} target="_blank">
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.17 6.839 9.49.5.092.682-.217.682-.482 0-.237-.009-.866-.013-1.7-2.782.604-3.369-1.341-3.369-1.341-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.167 22 16.418 22 12c0-5.523-4.477-10-10-10z"/>
+          </svg>
+          View on GitHub
+        </Button>
+      </div>
+
+      <div class="reveal flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-[var(--color-text-tertiary)]">
+        <span class="flex items-center gap-1.5">
+          <svg class="h-3.5 w-3.5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Built from Germany
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="h-3.5 w-3.5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          Global ambition
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="h-3.5 w-3.5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+          Privacy-first direction
+        </span>
+        <span class="flex items-center gap-1.5">
+          <svg class="h-3.5 w-3.5 text-[var(--color-accent)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          Transparent philosophy
+        </span>
+      </div>
+    </div>
+  </Container>
+
+  <!-- Decorative gradient orbs -->
+  <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-[var(--color-accent)]/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+  <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-[var(--color-teal)]/3 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+</section>

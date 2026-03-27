@@ -1,0 +1,67 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+import { comparisonRows } from "@/data/comparison";
+---
+
+<section id="comparison" class="py-20 md:py-28 bg-[var(--color-surface)]/50">
+  <Container>
+    <Reveal>
+      <SectionHeading
+        eyebrow="A different approach"
+        title="Built for teams who need clarity, control, and trust"
+        description="Repovera is designed around the needs that current platforms leave underserved — governance, transparency, and jurisdictional confidence."
+      />
+    </Reveal>
+
+    <!-- Desktop table -->
+    <Reveal>
+      <div class="hidden md:block overflow-hidden rounded-xl border border-[var(--color-border)]">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-[var(--color-surface)]">
+              <th class="text-left px-6 py-4 font-semibold text-[var(--color-text-secondary)] w-1/4">Aspect</th>
+              <th class="text-left px-6 py-4 font-semibold text-[var(--color-accent)] w-[37.5%]">Repovera</th>
+              <th class="text-left px-6 py-4 font-semibold text-[var(--color-text-secondary)] w-[37.5%]">Conventional platforms</th>
+            </tr>
+          </thead>
+          <tbody>
+            {
+              comparisonRows.map((row, i) => (
+                <tr class:list={["border-t border-[var(--color-border)]", i % 2 === 0 ? "bg-[var(--color-bg)]" : "bg-[var(--color-surface)]/30"]}>
+                  <td class="px-6 py-4 font-medium text-[var(--color-text)]">{row.aspect}</td>
+                  <td class="px-6 py-4 text-[var(--color-text-secondary)]">{row.repovera}</td>
+                  <td class="px-6 py-4 text-[var(--color-text-tertiary)]">{row.conventional}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </Reveal>
+
+    <!-- Mobile cards -->
+    <div class="md:hidden space-y-4">
+      {
+        comparisonRows.map((row, i) => (
+          <Reveal delay={i * 50}>
+            <div class="p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)]">
+              <h4 class="text-sm font-semibold text-[var(--color-text)] mb-3">{row.aspect}</h4>
+              <div class="space-y-2.5">
+                <div>
+                  <span class="text-xs font-medium text-[var(--color-accent)] uppercase tracking-wider">Repovera</span>
+                  <p class="text-sm text-[var(--color-text-secondary)] mt-0.5">{row.repovera}</p>
+                </div>
+                <div>
+                  <span class="text-xs font-medium text-[var(--color-text-tertiary)] uppercase tracking-wider">Conventional</span>
+                  <p class="text-sm text-[var(--color-text-tertiary)] mt-0.5">{row.conventional}</p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        ))
+      }
+    </div>
+  </Container>
+</section>

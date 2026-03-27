@@ -1,0 +1,65 @@
+---
+import Container from "@/components/ui/Container.astro";
+import SectionHeading from "@/components/ui/SectionHeading.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+---
+
+<section id="global" class="py-20 md:py-28">
+  <Container>
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div>
+        <Reveal>
+          <SectionHeading
+            eyebrow="Global by design"
+            title="Built from Germany. Open to the world."
+            description="Repovera's legal home is in Germany — one of the strongest jurisdictions for data protection and digital rights. But this is not about boundaries. It is about clarity."
+            align="left"
+          />
+        </Reveal>
+
+        <Reveal delay={100}>
+          <div class="space-y-5 text-[var(--color-text-secondary)] leading-relaxed">
+            <p>
+              By anchoring the platform in Germany, we give every user — regardless of where they work —
+              the assurance that their code and data are governed by clear, accountable, and well-understood
+              laws. This is not a limitation. It is a foundation.
+            </p>
+            <p>
+              Repovera is designed for global use: accessible from anywhere, built for distributed teams,
+              and structured to serve developers, startups, enterprises, and institutions worldwide. Germany
+              is our anchor, not our boundary.
+            </p>
+          </div>
+        </Reveal>
+      </div>
+
+      <Reveal delay={150}>
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { label: "German jurisdiction", sublabel: "Legal clarity and accountability", icon: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" },
+            { label: "Global access", sublabel: "No geographic restrictions", icon: "M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20" },
+            { label: "EU data standards", sublabel: "GDPR-grade privacy by design", icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+            { label: "Distributed teams", sublabel: "Built for worldwide collaboration", icon: "M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 7a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" },
+          ].map((item) => (
+            <div class="p-5 rounded-xl bg-[var(--color-surface)] border border-[var(--color-border)] hover:border-[var(--color-border-hover)] transition-colors">
+              <svg
+                class="h-5 w-5 text-[var(--color-accent)] mb-3"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d={item.icon} />
+              </svg>
+              <p class="text-sm font-semibold text-[var(--color-text)] mb-1">{item.label}</p>
+              <p class="text-xs text-[var(--color-text-tertiary)]">{item.sublabel}</p>
+            </div>
+          ))}
+        </div>
+      </Reveal>
+    </div>
+  </Container>
+</section>

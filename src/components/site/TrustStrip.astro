@@ -1,0 +1,50 @@
+---
+import Container from "@/components/ui/Container.astro";
+import Reveal from "@/components/ui/Reveal.astro";
+
+const items = [
+  { label: "Privacy-first architecture", icon: "shield" },
+  { label: "German legal grounding", icon: "scale" },
+  { label: "Global accessibility", icon: "globe" },
+  { label: "Transparent product design", icon: "eye" },
+  { label: "Git-native vision", icon: "git-branch" },
+  { label: "Enterprise-ready direction", icon: "building" },
+];
+
+const iconPaths: Record<string, string> = {
+  shield: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z",
+  scale: "M16 3l5 5-5 5M8 3L3 8l5 5M12 22V2",
+  globe: "M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z",
+  eye: "M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8zM12 9a3 3 0 100 6 3 3 0 000-6z",
+  "git-branch": "M6 3v12M18 9a3 3 0 100-6 3 3 0 000 6zM6 21a3 3 0 100-6 3 3 0 000 6zM18 9a9 9 0 01-9 9",
+  building: "M3 21h18M5 21V7l8-4v18M13 21V3l6 4v14M9 9h1M9 13h1M9 17h1",
+};
+---
+
+<section class="py-12 border-y border-[var(--color-border)]">
+  <Container>
+    <Reveal>
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        {
+          items.map((item) => (
+            <div class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-[var(--color-text-secondary)]">
+              <svg
+                class="h-4 w-4 shrink-0 text-[var(--color-accent)]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d={iconPaths[item.icon] || iconPaths.shield} />
+              </svg>
+              <span>{item.label}</span>
+            </div>
+          ))
+        }
+      </div>
+    </Reveal>
+  </Container>
+</section>
