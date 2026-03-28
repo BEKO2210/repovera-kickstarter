@@ -51,6 +51,19 @@ body {
   outline-offset: 2px;
 }
 
+/* Header states */
+.header-top {
+  border-bottom: 1px solid transparent;
+  background: transparent;
+}
+
+.header-scrolled {
+  background: oklch(13% 0.01 260 / 0.9);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom-color: var(--color-border);
+}
+
 .skip-link {
   position: absolute;
   top: -100%;

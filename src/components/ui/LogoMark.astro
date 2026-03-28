@@ -1,4 +1,6 @@
 ---
+import { BASE_PATH } from "@/consts/site";
+
 interface Props {
   class?: string;
   showText?: boolean;
@@ -7,7 +9,7 @@ interface Props {
 const { class: className = "", showText = true } = Astro.props;
 ---
 
-<a href={`${import.meta.env.BASE_URL}`} class:list={["flex items-center gap-2.5 group", className]} aria-label="Repovera home">
+<a href={`${BASE_PATH}/`} class:list={["flex items-center gap-2.5 group", className]} aria-label="Repovera home">
   <svg
     viewBox="0 0 32 32"
     fill="none"
