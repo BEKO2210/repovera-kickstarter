@@ -7,7 +7,7 @@ import Footer from "@/components/site/Footer.astro";
 import { BASE_PATH } from "@/consts/site";
 ---
 
-<BaseLayout title="Page not found — Repovera" description="This page does not exist.">
+<BaseLayout title="Page not found — Repovera" description="This page does not exist." canonical={false} noindex={true}>
   <Header />
   <main id="main" class="pt-28 pb-20">
     <Container>
