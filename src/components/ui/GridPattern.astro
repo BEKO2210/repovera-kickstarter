@@ -1,4 +1,6 @@
 ---
+import { BASE_PATH } from "@/consts/site";
+
 interface Props {
   class?: string;
 }
@@ -12,7 +14,7 @@ const { class: className = "" } = Astro.props;
 >
   <div
     class="absolute inset-0 opacity-30"
-    style="background-image: url('/repovera-kickstarter/images/grid.svg'); background-size: 60px 60px;"
+    style={`background-image: url('${BASE_PATH}/images/grid.svg'); background-size: 60px 60px;`}
   >
   </div>
   <div
