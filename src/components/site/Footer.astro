@@ -2,7 +2,7 @@
 import Container from "@/components/ui/Container.astro";
 import LogoMark from "@/components/ui/LogoMark.astro";
 import { FOOTER_LINKS } from "@/consts/navigation";
-import { KICKSTARTER_URL, GITHUB_URL, SITE_NAME, CONTACT_EMAIL, BASE_PATH } from "@/consts/site";
+import { SITE_NAME, CONTACT_EMAIL, BASE_PATH } from "@/consts/site";
 ---
 
 <footer class="border-t border-[var(--color-border)] pt-16 pb-8">
@@ -19,7 +19,7 @@ import { KICKSTARTER_URL, GITHUB_URL, SITE_NAME, CONTACT_EMAIL, BASE_PATH } from
 
       <!-- Product links -->
       <div>
-        <h4 class="text-sm font-semibold text-[var(--color-text)] mb-4">Product</h4>
+        <p class="text-sm font-semibold text-[var(--color-text)] mb-4">Product</p>
         <ul class="space-y-2.5">
           {
             FOOTER_LINKS.product.map((link) => (
@@ -38,7 +38,7 @@ import { KICKSTARTER_URL, GITHUB_URL, SITE_NAME, CONTACT_EMAIL, BASE_PATH } from
 
       <!-- Legal links -->
       <div>
-        <h4 class="text-sm font-semibold text-[var(--color-text)] mb-4">Legal</h4>
+        <p class="text-sm font-semibold text-[var(--color-text)] mb-4">Legal</p>
         <ul class="space-y-2.5">
           {
             FOOTER_LINKS.legal.map((link) => (
@@ -57,7 +57,7 @@ import { KICKSTARTER_URL, GITHUB_URL, SITE_NAME, CONTACT_EMAIL, BASE_PATH } from
 
       <!-- Connect links -->
       <div>
-        <h4 class="text-sm font-semibold text-[var(--color-text)] mb-4">Connect</h4>
+        <p class="text-sm font-semibold text-[var(--color-text)] mb-4">Connect</p>
         <ul class="space-y-2.5">
           {
             FOOTER_LINKS.connect.map((link) => (

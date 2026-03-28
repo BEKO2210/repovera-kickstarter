@@ -56,25 +56,60 @@ import { KICKSTARTER_URL, BASE_PATH } from "@/consts/site";
   const menuIcon = document.getElementById("menu-icon");
   const closeIcon = document.getElementById("close-icon");
 
+  function closeNav() {
+    if (!toggle || !panel || !menuIcon || !closeIcon) return;
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
+    panel.classList.add("hidden");
+    menuIcon.classList.remove("hidden");
+    closeIcon.classList.add("hidden");
+    document.body.style.overflow = "";
+  }
+
+  function openNav() {
+    if (!toggle || !panel || !menuIcon || !closeIcon) return;
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation menu");
+    panel.classList.remove("hidden");
+    menuIcon.classList.add("hidden");
+    closeIcon.classList.remove("hidden");
+    document.body.style.overflow = "hidden";
+    // Focus the first link in the nav for keyboard users
+    const firstLink = panel.querySelector("a");
+    if (firstLink) firstLink.focus();
+  }
+
   if (toggle && panel && menuIcon && closeIcon) {
+    // Toggle button
     toggle.addEventListener("click", () => {
       const isOpen = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!isOpen));
-      toggle.setAttribute("aria-label", isOpen ? "Open navigation menu" : "Close navigation menu");
-      panel.classList.toggle("hidden");
-      menuIcon.classList.toggle("hidden");
-      closeIcon.classList.toggle("hidden");
-      document.body.style.overflow = isOpen ? "" : "hidden";
+      isOpen ? closeNav() : openNav();
     });
 
+    // Close on link click
     panel.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        toggle.setAttribute("aria-expanded", "false");
-        panel.classList.add("hidden");
-        menuIcon.classList.remove("hidden");
-        closeIcon.classList.add("hidden");
-        document.body.style.overflow = "";
-      });
+      link.addEventListener("click", closeNav);
+    });
+
+    // Close on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        closeNav();
+        toggle.focus();
+      }
+    });
+
+    // Close on click outside the nav panel content
+    panel.addEventListener("click", (e) => {
+      if (e.target === panel) closeNav();
+    });
+
+    // Handle resize: close mobile nav if viewport grows past md breakpoint
+    const mq = window.matchMedia("(min-width: 768px)");
+    mq.addEventListener("change", (e) => {
+      if (e.matches && toggle.getAttribute("aria-expanded") === "true") {
+        closeNav();
+      }
     });
   }
 </script>

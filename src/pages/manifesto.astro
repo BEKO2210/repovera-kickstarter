@@ -9,6 +9,7 @@ import { KICKSTARTER_URL, GITHUB_URL, BASE_PATH } from "@/consts/site";
 
 const manifestoEntries = await getCollection("manifesto");
 const entry = manifestoEntries[0];
+if (!entry) throw new Error("No manifesto content found. Add an MDX file to src/content/manifesto/.");
 const { Content } = await render(entry);
 ---
 
